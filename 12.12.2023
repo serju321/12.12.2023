@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+class Counter {
+    unsigned int time = 0;
+    unsigned int min_time = 0;
+    unsigned int max_time = 99999;
+    unsigned short one_step = 1;
+
+public:
+
+    void SetTime(unsigned int time)
+    {
+        this->time = time;
+    }
+    unsigned int GetTime()
+    {
+        return time;
+    }
+    void SetMax(unsigned int max_time)
+    {
+       this->max_time = max_time;
+    }
+    unsigned int GetMax()
+    {
+        return max_time;
+    }
+    void SetMin(unsigned int min_time)
+    {
+        this->min_time = min_time;
+    }
+    unsigned int GetMin()
+    {
+        return min_time;
+    }
+    void SetOne(unsigned int one_step)
+    {
+        this->one_step = one_step;
+    }
+    unsigned short GetOne()
+    {
+        return one_step;
+    }
+
+    void TimeStart()
+    {
+        while (time <= max_time)
+        {
+            if (time == max_time)
+            {
+                time = min_time;
+            }
+            time += one_step;
+            cout << time << "\n";
+        }
+    }
+};
+
+int main()
+{
+    Counter c;
+    c.TimeStart();
+}
